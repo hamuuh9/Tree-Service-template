@@ -72,7 +72,7 @@ export default function HeroSection() {
     >
       {/* Drone Video Background */}
       <VideoBackground
-        videoUrl="https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4"
+        videoUrl="https://demo.wprise.co/TreeAce/wp-content/uploads/2025/01/video-of-trees.mp4"
         overlay={true}
       />
 
