@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { templateConfig } from "@/config/templateConfig";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 // Dynamic imports for better performance and to avoid SSR issues
 const HeroSection = dynamic(() => import("@/components/sections/HeroSection"), {
@@ -38,42 +39,44 @@ const Footer = dynamic(() => import("@/components/sections/Footer"), {
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      {/* Hero Section with Drone Video */}
-      <HeroSection />
+    <ErrorBoundary>
+      <main className="min-h-screen">
+        {/* Hero Section with Drone Video */}
+        <HeroSection />
 
-      {/* Services Section */}
-      <div id="services">
-        <ServicesSection />
-      </div>
+        {/* Services Section */}
+        <div id="services">
+          <ServicesSection />
+        </div>
 
-      {/* Why Choose Us Section */}
-      <div id="about">
-        <WhyChooseUs />
-      </div>
+        {/* Why Choose Us Section */}
+        <div id="about">
+          <WhyChooseUs />
+        </div>
 
-      {/* Service Area Section */}
-      <div id="area">
-        <ServiceArea />
-      </div>
+        {/* Service Area Section */}
+        <div id="area">
+          <ServiceArea />
+        </div>
 
-      {/* Testimonials Section */}
-      <div id="reviews">
-        <Testimonials />
-      </div>
+        {/* Testimonials Section */}
+        <div id="reviews">
+          <Testimonials />
+        </div>
 
-      {/* Footer */}
-      <Footer />
+        {/* Footer */}
+        <Footer />
 
-      {/* Floating Contact Button (Mobile) */}
-      <div className="fixed bottom-6 right-6 z-50 md:hidden">
-        <a
-          href={`tel:${templateConfig.business.phone}`}
-          className="bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-700 transition-colors duration-200"
-        >
-          <span className="text-2xl">📞</span>
-        </a>
-      </div>
-    </main>
+        {/* Floating Contact Button (Mobile) */}
+        <div className="fixed bottom-6 right-6 z-50 md:hidden">
+          <a
+            href={`tel:${templateConfig.business.phone}`}
+            className="bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-700 transition-colors duration-200"
+          >
+            <span className="text-2xl">📞</span>
+          </a>
+        </div>
+      </main>
+    </ErrorBoundary>
   );
 }
