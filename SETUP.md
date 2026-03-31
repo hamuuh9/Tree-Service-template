@@ -107,6 +107,23 @@ choco install nodejs-lts
    - Click "Deploy"
    - Your site will be live at `https://tree-service-template.vercel.app`
 
+## Auto-Deployment with GitHub Actions
+
+The template includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) for automatic deployment to Vercel.
+
+### Setup:
+1. Create a Vercel account at [vercel.com](https://vercel.com)
+2. Get your Vercel token from Account Settings → Tokens
+3. Get your Organization ID and Project ID from Vercel project settings
+4. Add these as secrets in your GitHub repository:
+   - `VERCEL_TOKEN`
+   - `VERCEL_ORG_ID`
+   - `VERCEL_PROJECT_ID`
+
+### Usage:
+- Push to `main` branch triggers automatic deployment
+- Pull requests get preview deployments
+
 ## Troubleshooting
 
 ### Node.js not found
@@ -117,6 +134,8 @@ choco install nodejs-lts
 - Try deleting `node_modules` and `package-lock.json`
 - Run `npm cache clean --force`
 - Run `npm install` again
+- **Note:** If using Node.js 24+, npm 11 may have compatibility issues. Consider downgrading to Node.js 20 LTS.
+- Try using the provided `setup.bat` script (right-click → Run as administrator)
 
 ### Git push fails
 - Ensure you're logged into GitHub
@@ -140,6 +159,24 @@ choco install nodejs-lts
 4. **Test responsiveness:**
    - Check mobile view
    - Test animations on different devices
+
+## Customizing Without Local Installation
+
+You can customize the template directly on GitHub:
+
+1. **Edit configuration:**
+   - Go to `config/templateConfig.ts` in your GitHub repository
+   - Click the edit (pencil) icon
+   - Change business details, colors, services
+   - Commit changes
+
+2. **Preview changes:**
+   - Vercel will auto-deploy your changes
+   - Check the preview URL in your Vercel dashboard
+
+3. **Add custom video:**
+   - Upload your drone video to a CDN (e.g., Cloudinary, AWS S3)
+   - Update the video URL in `components/sections/HeroSection.tsx`
 
 ## Support
 
