@@ -5,7 +5,10 @@ import { templateConfig } from "@/config/templateConfig";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 // Dynamic imports for better performance and to avoid SSR issues
-const HeroSection = dynamic(() => import("@/components/sections/HeroSection"), {
+const HeroSection = dynamic(() => {
+  console.log("Loading HeroSection...");
+  return import("@/components/sections/HeroSection");
+}, {
   ssr: false,
   loading: () => <div className="min-h-screen bg-gray-900" />,
 });
