@@ -20,6 +20,7 @@ export default function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   useEffect(() => {
+    console.log("HeroSection mounted");
     // GSAP animations for hero text
     const tl = gsap.timeline({ delay: 1 });
     
