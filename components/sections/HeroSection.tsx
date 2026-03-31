@@ -82,7 +82,7 @@ export default function HeroSection() {
         style={{ y, opacity }}
       >
         {/* Floating Particles */}
-        {templateConfig.animation.enableParticles && (
+        {templateConfig.animation.enableParticles && typeof window !== 'undefined' && (
           <div className="particles-container">
             {Array.from({ length: templateConfig.animation.particleCount }).map((_, i) => (
               <motion.div
