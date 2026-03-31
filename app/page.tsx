@@ -1,50 +1,32 @@
-"use client";
-
-import HeroSection from "@/components/sections/HeroSection";
-import ServicesSection from "@/components/sections/ServicesSection";
-import WhyChooseUs from "@/components/sections/WhyChooseUs";
-import ServiceArea from "@/components/sections/ServiceArea";
-import Testimonials from "@/components/sections/Testimonials";
-import Footer from "@/components/sections/Footer";
-import { templateConfig } from "@/config/templateConfig";
-
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      {/* Hero Section with Drone Video */}
-      <HeroSection />
-
-      {/* Services Section */}
-      <div id="services">
-        <ServicesSection />
+    <main className="min-h-screen bg-white p-8">
+      <h1 className="text-4xl font-bold text-gray-900 mb-4">
+        Tree Service Template - Static Test
+      </h1>
+      <p className="text-lg text-gray-600 mb-8">
+        If you can see this, Vercel is serving static content correctly.
+      </p>
+      <div className="bg-green-100 p-4 rounded-lg mb-8">
+        <p className="text-green-800">Tailwind CSS is working.</p>
       </div>
-
-      {/* Why Choose Us Section */}
-      <div id="about">
-        <WhyChooseUs />
+      <div className="space-y-4">
+        <h2 className="text-2xl font-bold">Next Steps:</h2>
+        <ol className="list-decimal list-inside text-gray-700">
+          <li>Check Vercel deployment logs for errors</li>
+          <li>Ensure all dependencies installed correctly</li>
+          <li>Check browser console for JavaScript errors</li>
+          <li>Verify vercel.json doesn't have catch-all routes</li>
+        </ol>
       </div>
-
-      {/* Service Area Section */}
-      <div id="area">
-        <ServiceArea />
-      </div>
-
-      {/* Testimonials Section */}
-      <div id="reviews">
-        <Testimonials />
-      </div>
-
-      {/* Footer */}
-      <Footer />
-
-      {/* Floating Contact Button (Mobile) */}
-      <div className="fixed bottom-6 right-6 z-50 md:hidden">
-        <a
-          href={`tel:${templateConfig.business.phone}`}
-          className="bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-700 transition-colors duration-200"
-        >
-          <span className="text-2xl">📞</span>
-        </a>
+      <div className="mt-8 p-4 bg-blue-100 rounded-lg">
+        <h3 className="font-bold text-blue-800 mb-2">Deployment Status:</h3>
+        <p className="text-blue-700">
+          Vercel build ID: xDKbaq2P6isv2RFuYvYC_
+        </p>
+        <p className="text-blue-700">
+          If this page shows, static export works.
+        </p>
       </div>
     </main>
   );
