@@ -34,8 +34,7 @@ const Footer = dynamic(() => import("@/components/sections/Footer"), {
   loading: () => <div className="min-h-screen bg-gray-900" />,
 });
 
-// Force dynamic rendering to avoid SSR issues with client components
-export const dynamic = 'force-dynamic';
+
 
 export default function Home() {
   return (
