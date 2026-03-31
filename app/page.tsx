@@ -1,38 +1,12 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import HeroSection from "@/components/sections/HeroSection";
+import ServicesSection from "@/components/sections/ServicesSection";
+import WhyChooseUs from "@/components/sections/WhyChooseUs";
+import ServiceArea from "@/components/sections/ServiceArea";
+import Testimonials from "@/components/sections/Testimonials";
+import Footer from "@/components/sections/Footer";
 import { templateConfig } from "@/config/templateConfig";
-
-// Dynamic imports for better performance
-const HeroSection = dynamic(() => import("@/components/sections/HeroSection"), {
-  ssr: false,
-  loading: () => <div className="min-h-screen bg-gray-900" />,
-});
-
-const ServicesSection = dynamic(() => import("@/components/sections/ServicesSection"), {
-  ssr: false,
-  loading: () => <div className="min-h-screen bg-gray-100" />,
-});
-
-const WhyChooseUs = dynamic(() => import("@/components/sections/WhyChooseUs"), {
-  ssr: false,
-  loading: () => <div className="min-h-screen bg-white" />,
-});
-
-const ServiceArea = dynamic(() => import("@/components/sections/ServiceArea"), {
-  ssr: false,
-  loading: () => <div className="min-h-screen bg-gray-50" />,
-});
-
-const Testimonials = dynamic(() => import("@/components/sections/Testimonials"), {
-  ssr: false,
-  loading: () => <div className="min-h-screen bg-gray-50" />,
-});
-
-const Footer = dynamic(() => import("@/components/sections/Footer"), {
-  ssr: false,
-  loading: () => <div className="min-h-screen bg-gray-900" />,
-});
 
 export default function Home() {
   return (
