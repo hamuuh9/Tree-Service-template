@@ -6,5 +6,7 @@
       "use": "@vercel/next"
     }
   ],
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "installCommand": "npm install --no-audit --no-fund",
+  "buildCommand": "npm run build"
 }
