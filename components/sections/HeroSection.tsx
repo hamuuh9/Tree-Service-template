@@ -7,8 +7,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import VideoBackground from "../effects/VideoBackground";
 import { templateConfig } from "@/config/templateConfig";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -20,6 +18,11 @@ export default function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   useEffect(() => {
+    // Register GSAP plugins only on client side
+    if (typeof window !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+    }
+    
     console.log("HeroSection mounted");
     // GSAP animations for hero text
     const tl = gsap.timeline({ delay: 1 });
