@@ -88,14 +88,14 @@ export default function HeroSection() {
       />
 
       {/* Parallax Layer */}
-      <motion.div
+      <div
         className="absolute inset-0"
       >
         {/* Floating Particles */}
         {templateConfig.animation.enableParticles && typeof window !== 'undefined' && (
           <div className="particles-container">
             {Array.from({ length: templateConfig.animation.particleCount }).map((_, i) => (
-              <motion.div
+              <div
                 key={i}
                 className="absolute w-2 h-2 bg-green-200/30 rounded-full"
                 initial={{
@@ -120,15 +120,14 @@ export default function HeroSection() {
             ))}
           </div>
         )}
-      </motion.div>
+      </div>
 
       {/* Hero Content */}
-      <motion.div
+      <div
         className="relative z-10 container mx-auto px-4 text-center text-white pt-20"
-        style={{ opacity }}
       >
         {/* Top Bar */}
-        <motion.div
+        <div
           className="flex flex-col md:flex-row justify-between items-center mb-8"
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -156,25 +155,25 @@ export default function HeroSection() {
               Schedule a Free Estimate
             </span>
           </div>
-        </motion.div>
+        </div>
 
         {/* Main Hero Content */}
         <div className="max-w-4xl mx-auto">
-          <motion.h1
+          <h1
             className="hero-title text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
           >
             {templateConfig.business.tagline}
-          </motion.h1>
+          </h1>
           
-          <motion.p
+          <p
             className="hero-subtitle text-xl md:text-2xl mb-8 text-gray-200"
           >
             Favorite Tree Company for {templateConfig.business.yearsExperience}+ Years
-          </motion.p>
+          </p>
 
           {/* CTA Buttons */}
           <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <motion.a
+            <a
               href={`tel:${templateConfig.business.phone}`}
               className="btn-primary bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 flex items-center space-x-2"
               whileHover={{ scale: 1.05 }}
@@ -182,20 +181,20 @@ export default function HeroSection() {
             >
               <span>📞</span>
               <span>{templateConfig.business.phone}</span>
-            </motion.a>
+            </a>
             
-            <motion.a
+            <a
               href="#contact"
               className="btn-primary bg-transparent border-2 border-white hover:bg-white hover:text-green-800 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Contact Us
-            </motion.a>
+            </a>
           </div>
 
           {/* Contact Form */}
-          <motion.div
+          <div
             className="hero-form bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 max-w-2xl mx-auto"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -243,7 +242,7 @@ export default function HeroSection() {
                 rows={3}
                 className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/50 text-white placeholder-gray-300"
               />
-              <motion.button
+              <button
                 type="submit"
                 className="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-lg font-semibold text-lg transition-colors duration-300 flex items-center justify-center space-x-2"
                 whileHover={{ scale: 1.02 }}
@@ -251,26 +250,26 @@ export default function HeroSection() {
               >
                 <span>Make an Appointment</span>
                 <span>→</span>
-              </motion.button>
+              </button>
             </form>
-          </motion.div>
+          </div>
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div
+        <div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
           <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <motion.div
+            <div
               className="w-1 h-3 bg-white rounded-full mt-2"
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             />
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }
