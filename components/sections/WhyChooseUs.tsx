@@ -38,7 +38,7 @@ export default function WhyChooseUs() {
             >
               Contact Us
             </a>
-          </motion.div>
+          </div>
 
           {/* Right Content - Trust Badges */}
           <div className="grid grid-cols-2 gap-6">

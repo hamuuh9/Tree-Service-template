@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface ButtonProps {
@@ -39,15 +38,13 @@ export default function Button({
   const disabledStyles = disabled ? "opacity-50 cursor-not-allowed" : "";
 
   return (
-    <motion.button
+    <button
       type={type}
       className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${disabledStyles} ${className}`}
       onClick={onClick}
       disabled={disabled}
-      whileHover={disabled ? {} : { scale: 1.05 }}
-      whileTap={disabled ? {} : { scale: 0.95 }}
     >
       {children}
-    </motion.button>
+    </button>
   );
 }
