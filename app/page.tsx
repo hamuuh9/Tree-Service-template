@@ -1,15 +1,15 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import dynamicImport from "next/dynamic";
 import { templateConfig } from "@/config/templateConfig";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import ClientOnly from "@/components/ClientOnly";
 
 // Force dynamic rendering
-export const dynamic = 'force-dynamic';
+export const dynamicConfig = 'force-dynamic';
 
 // Dynamic imports for better performance and to avoid SSR issues
-const HeroSection = dynamic(() => {
+const HeroSection = dynamicImport(() => {
   console.log("Loading HeroSection...");
   return import("@/components/sections/HeroSection");
 }, {
@@ -22,7 +22,7 @@ const HeroSectionWrapped = (props: any) => (
   </ClientOnly>
 );
 
-const ServicesSection = dynamic(() => import("@/components/sections/ServicesSection"), {
+const ServicesSection = dynamicImport(() => import("@/components/sections/ServicesSection"), {
   ssr: false,
   loading: () => <div className="min-h-screen bg-gray-100" />,
 });
@@ -32,7 +32,7 @@ const ServicesSectionWrapped = (props: any) => (
   </ClientOnly>
 );
 
-const WhyChooseUs = dynamic(() => import("@/components/sections/WhyChooseUs"), {
+const WhyChooseUs = dynamicImport(() => import("@/components/sections/WhyChooseUs"), {
   ssr: false,
   loading: () => <div className="min-h-screen bg-white" />,
 });
@@ -42,7 +42,7 @@ const WhyChooseUsWrapped = (props: any) => (
   </ClientOnly>
 );
 
-const ServiceArea = dynamic(() => import("@/components/sections/ServiceArea"), {
+const ServiceArea = dynamicImport(() => import("@/components/sections/ServiceArea"), {
   ssr: false,
   loading: () => <div className="min-h-screen bg-gray-50" />,
 });
@@ -52,7 +52,7 @@ const ServiceAreaWrapped = (props: any) => (
   </ClientOnly>
 );
 
-const Testimonials = dynamic(() => import("@/components/sections/Testimonials"), {
+const Testimonials = dynamicImport(() => import("@/components/sections/Testimonials"), {
   ssr: false,
   loading: () => <div className="min-h-screen bg-gray-50" />,
 });
@@ -62,7 +62,7 @@ const TestimonialsWrapped = (props: any) => (
   </ClientOnly>
 );
 
-const Footer = dynamic(() => import("@/components/sections/Footer"), {
+const Footer = dynamicImport(() => import("@/components/sections/Footer"), {
   ssr: false,
   loading: () => <div className="min-h-screen bg-gray-900" />,
 });

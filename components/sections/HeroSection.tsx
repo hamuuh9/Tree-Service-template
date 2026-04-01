@@ -90,7 +90,6 @@ export default function HeroSection() {
       {/* Parallax Layer */}
       <motion.div
         className="absolute inset-0"
-        style={{ y, opacity }}
       >
         {/* Floating Particles */}
         {templateConfig.animation.enableParticles && typeof window !== 'undefined' && (
@@ -163,7 +162,6 @@ export default function HeroSection() {
         <div className="max-w-4xl mx-auto">
           <motion.h1
             className="hero-title text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
-            data-text={templateConfig.business.tagline}
           >
             {templateConfig.business.tagline}
           </motion.h1>
