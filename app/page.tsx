@@ -23,26 +23,51 @@ const ServicesSection = dynamic(() => import("@/components/sections/ServicesSect
   ssr: false,
   loading: () => <div className="min-h-screen bg-gray-100" />,
 });
+const ServicesSectionWrapped = (props: any) => (
+  <ClientOnly fallback={<div className="min-h-screen bg-gray-100" />}>
+    <ServicesSection {...props} />
+  </ClientOnly>
+);
 
 const WhyChooseUs = dynamic(() => import("@/components/sections/WhyChooseUs"), {
   ssr: false,
   loading: () => <div className="min-h-screen bg-white" />,
 });
+const WhyChooseUsWrapped = (props: any) => (
+  <ClientOnly fallback={<div className="min-h-screen bg-white" />}>
+    <WhyChooseUs {...props} />
+  </ClientOnly>
+);
 
 const ServiceArea = dynamic(() => import("@/components/sections/ServiceArea"), {
   ssr: false,
   loading: () => <div className="min-h-screen bg-gray-50" />,
 });
+const ServiceAreaWrapped = (props: any) => (
+  <ClientOnly fallback={<div className="min-h-screen bg-gray-50" />}>
+    <ServiceArea {...props} />
+  </ClientOnly>
+);
 
 const Testimonials = dynamic(() => import("@/components/sections/Testimonials"), {
   ssr: false,
   loading: () => <div className="min-h-screen bg-gray-50" />,
 });
+const TestimonialsWrapped = (props: any) => (
+  <ClientOnly fallback={<div className="min-h-screen bg-gray-50" />}>
+    <Testimonials {...props} />
+  </ClientOnly>
+);
 
 const Footer = dynamic(() => import("@/components/sections/Footer"), {
   ssr: false,
   loading: () => <div className="min-h-screen bg-gray-900" />,
 });
+const FooterWrapped = (props: any) => (
+  <ClientOnly fallback={<div className="min-h-screen bg-gray-900" />}>
+    <Footer {...props} />
+  </ClientOnly>
+);
 
 
 
@@ -55,26 +80,26 @@ export default function Home() {
 
         {/* Services Section */}
         <div id="services">
-          <ServicesSection />
+          <ServicesSectionWrapped />
         </div>
 
         {/* Why Choose Us Section */}
         <div id="about">
-          <WhyChooseUs />
+          <WhyChooseUsWrapped />
         </div>
 
         {/* Service Area Section */}
         <div id="area">
-          <ServiceArea />
+          <ServiceAreaWrapped />
         </div>
 
         {/* Testimonials Section */}
         <div id="reviews">
-          <Testimonials />
+          <TestimonialsWrapped />
         </div>
 
         {/* Footer */}
-        <Footer />
+        <FooterWrapped />
 
         {/* Floating Contact Button (Mobile) */}
         <div className="fixed bottom-6 right-6 z-50 md:hidden">
