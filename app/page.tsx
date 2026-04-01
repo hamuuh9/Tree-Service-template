@@ -107,7 +107,7 @@ export default function Home() {
         {/* Floating Contact Button (Mobile) */}
         <div className="fixed bottom-6 right-6 z-50 md:hidden">
           <a
-            href={`tel:${templateConfig.business.phone}`}
+            href={`tel:555-999-8888`}
             className="bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-700 transition-colors duration-200"
           >
             <span className="text-2xl">📞</span>

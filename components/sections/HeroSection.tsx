@@ -1,6 +1,7 @@
 "use client";
 
 export default function HeroSection() {
+  console.log("HeroSection rendered");
   return (
     <section className="min-h-screen bg-gray-900 flex items-center justify-center">
       <div className="text-center text-white p-8">
