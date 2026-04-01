@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// Framer Motion and GSAP imports removed for simplification
 import VideoBackground from "../effects/VideoBackground";
 import { templateConfig } from "@/config/templateConfig";
 
@@ -15,66 +13,11 @@ export default function HeroSection() {
   }, []);
   
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   
   // Show loading placeholder until client-side mount
   if (!isMounted) {
     return <div className="min-h-screen bg-gray-900" />;
   }
-
-  useEffect(() => {
-    // Register GSAP plugins only on client side
-    if (typeof window !== 'undefined') {
-      gsap.registerPlugin(ScrollTrigger);
-    }
-    
-    console.log("HeroSection mounted");
-    // GSAP animations for hero text
-    const tl = gsap.timeline({ delay: 1 });
-    
-    tl.from(".hero-tagline", {
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power3.out",
-    })
-    .from(".hero-title", {
-      y: 60,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out",
-    }, "-=0.5")
-    .from(".hero-subtitle", {
-      y: 40,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power3.out",
-    }, "-=0.7")
-    .from(".hero-cta", {
-      y: 30,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.2,
-      ease: "power3.out",
-    }, "-=0.5")
-    .from(".hero-form", {
-      y: 40,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power3.out",
-    }, "-=0.4");
-
-    // Cleanup
-    return () => {
-      tl.kill();
-    };
-  }, []);
 
   return (
     <section
