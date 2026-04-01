@@ -5,6 +5,9 @@ import { templateConfig } from "@/config/templateConfig";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import ClientOnly from "@/components/ClientOnly";
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+
 // Dynamic imports for better performance and to avoid SSR issues
 const HeroSection = dynamic(() => {
   console.log("Loading HeroSection...");
