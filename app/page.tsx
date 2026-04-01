@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { templateConfig } from "@/config/templateConfig";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import ClientOnly from "@/components/ClientOnly";
 
 // Dynamic imports for better performance and to avoid SSR issues
 const HeroSection = dynamic(() => {
@@ -12,6 +13,11 @@ const HeroSection = dynamic(() => {
   ssr: false,
   loading: () => <div className="min-h-screen bg-gray-900" />,
 });
+const HeroSectionWrapped = (props: any) => (
+  <ClientOnly fallback={<div className="min-h-screen bg-gray-900" />}>
+    <HeroSection {...props} />
+  </ClientOnly>
+);
 
 const ServicesSection = dynamic(() => import("@/components/sections/ServicesSection"), {
   ssr: false,
@@ -44,8 +50,8 @@ export default function Home() {
   return (
     <ErrorBoundary>
       <main className="min-h-screen">
-        {/* Hero Section with Drone Video */}
-        <HeroSection />
+      {/* Hero Section with Drone Video */}
+      <HeroSectionWrapped />
 
         {/* Services Section */}
         <div id="services">
