@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -8,6 +8,12 @@ import VideoBackground from "../effects/VideoBackground";
 import { templateConfig } from "@/config/templateConfig";
 
 export default function HeroSection() {
+  const [isMounted, setIsMounted] = useState(false);
+  
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+  
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -16,6 +22,11 @@ export default function HeroSection() {
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  
+  // Show loading placeholder until client-side mount
+  if (!isMounted) {
+    return <div className="min-h-screen bg-gray-900" />;
+  }
 
   useEffect(() => {
     // Register GSAP plugins only on client side
