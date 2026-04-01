@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+// Framer Motion import removed
 
 interface VideoBackgroundProps {
   videoUrl: string;
@@ -25,7 +25,7 @@ export default function VideoBackground({
   return (
     <div className={`absolute inset-0 overflow-hidden ${className}`}>
       {/* Video Background */}
-      <motion.video
+      <video
         ref={videoRef}
         autoPlay
         muted
@@ -38,24 +38,18 @@ export default function VideoBackground({
       >
         <source src={videoUrl} type="video/mp4" />
         Your browser does not support the video tag.
-      </motion.video>
+      </video>
 
       {/* Gradient Overlay */}
       {overlay && (
-        <motion.div
+        <div
           className="video-overlay"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 0.5 }}
         />
       )}
 
       {/* Animated Trees/Elements */}
-      <motion.div
+      <div
         className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-green-900/30 to-transparent"
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 1, delay: 0.8 }}
       />
     </div>
   );
