@@ -31,10 +31,7 @@ export default function VideoBackground({
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        initial={{ scale: 1.1, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 2, ease: "easeOut" }}
+        className="absolute inset-0 w-full h-full object-cover animate-fade-in"
       >
         <source src={videoUrl} type="video/mp4" />
         Your browser does not support the video tag.
