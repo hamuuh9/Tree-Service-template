@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { templateConfig } from "@/config/templateConfig";
 
 export default function WhyChooseUs() {
@@ -16,12 +15,7 @@ export default function WhyChooseUs() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <motion.div
-            initial={{ x: -50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Why Choose <span className="text-green-600">{templateConfig.business.name}</span>
             </h2>
@@ -38,31 +32,21 @@ export default function WhyChooseUs() {
               </p>
             </div>
 
-            <motion.a
+            <a
               href="#contact"
-              className="btn-primary inline-block bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="inline-block bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105"
             >
               Contact Us
-            </motion.a>
+            </a>
           </motion.div>
 
           {/* Right Content - Trust Badges */}
           <div className="grid grid-cols-2 gap-6">
             {templateConfig.trustBadges.map((badge, index) => (
-              <motion.div
+              <div
                 key={index}
-                className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 group"
-                initial={{ y: 30, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ 
-                  y: -5,
-                  scale: 1.02,
-                  transition: { duration: 0.2 }
-                }}
+                className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 group hover:-translate-y-2"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
                   {badge.icon}
@@ -71,49 +55,32 @@ export default function WhyChooseUs() {
                   {badge.text}
                 </h3>
                 <div className="w-12 h-1 bg-green-500 mx-auto rounded-full group-hover:w-16 transition-all duration-300" />
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Statistics */}
-        <motion.div
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             { number: `${templateConfig.business.yearsExperience}+`, label: "Years Experience" },
             { number: "5000+", label: "Trees Removed" },
             { number: "1000+", label: "Happy Customers" },
             { number: "24/7", label: "Emergency Service" },
           ].map((stat, index) => (
-            <motion.div
+            <div
               key={index}
-              className="text-center"
-              whileHover={{ scale: 1.05 }}
+              className="text-center hover:scale-105 transition-transform duration-300"
             >
-              <motion.div
-                className="text-4xl md:text-5xl font-bold text-green-600 mb-2"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ 
-                  type: "spring",
-                  stiffness: 100,
-                  delay: index * 0.1 
-                }}
-              >
+              <div className="text-4xl md:text-5xl font-bold text-green-600 mb-2">
                 {stat.number}
-              </motion.div>
+              </div>
               <div className="text-gray-600 font-medium">
                 {stat.label}
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
